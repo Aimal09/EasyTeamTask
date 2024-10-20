@@ -4,7 +4,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
->**Note**: Before starting make sure you have ```bash .npmrc``` in your *$HOME/* directory or you can find the path for .npmrc using ```bash npm config ls -l``` look for *userconfig= "/somepath/"* somepath will be the best path for .npmrc. also include the ```bash //registry.npmjs.org/:_authToken=<YOUR_TOKEN>```
+>**Note**: Before starting make sure you have ```.npmrc``` in your *$HOME/* directory or you can find the path for .npmrc using ```npm config ls -l``` look for *userconfig= "/somepath/"* somepath will be the best path for .npmrc. also include the ```//registry.npmjs.org/:_authToken=<YOUR_TOKEN>```
 
 ## Step 1: Install npm libraries and Start the Metro Server
 
