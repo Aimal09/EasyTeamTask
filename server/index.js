@@ -23,7 +23,7 @@ mongoose
     });
 
 const getSecret = () => {
-    const jwtSecret = fs.readFileSync('jwtRS256.key', 'utf8');
+    const jwtSecret = fs.readFileSync('private_key.key', 'utf8');
     process.env.JWT_SECRET = jwtSecret.trim()
 }
 getSecret();
@@ -32,33 +32,42 @@ app.post('/api/login', async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        const employee = await Employee.findOne({ employeeId: email });
-        if (!employee) {
+        const _employee = await Employee.findOne({ email });
+        if (!_employee) {
             return res.status(401).json({ message: 'Invalid email or password' });
         }
 
-        const isMatch = await bcrypt.compare(password, employee.password);
+        const isMatch = await bcrypt.compare(password, _employee.password);
         if (!isMatch) {
             return res.status(401).json({ message: 'Invalid email or password' });
         }
 
-        const currentEmployee = employee.toObject();
-        currentEmployee.employeeId = employee.toObject()._id;
+        const currentEmployee = _employee.toObject();
+        const employee = {
+            id:currentEmployee._id,
+            employeeId: currentEmployee.employeeId,
+            locationId: currentEmployee.locationId,
+            organizationId: currentEmployee.organizationId,
+            partnerId: currentEmployee.partnerId,
+            payrollId: currentEmployee.payrollId,
+            employeePayrollId: currentEmployee.employeePayrollId,
+            accessRole: currentEmployee.accessRole,
+            role: currentEmployee.role
+          }
 
-        const token = jwt.sign(currentEmployee, process.env.JWT_SECRET, { algorithm: 'RS256' });
-        console.log("--LOGIN--")
+        const token = jwt.sign(employee, process.env.JWT_SECRET, { algorithm: 'RS256' });
+        console.log("--LOGIN--",employee)
 
         const employees = await Employee.find();
         const formatedEmployee = employees.map(em => ({
-            id: em._id,
-            employeeId: em._id,
+            id: em.employeeId,
             name: em.name,
             picture: em.picture,
             payrollId: em.payrollId,
-            deleted_at: em.deleted_at
+            deleted_at: em.deleted_at,
         }))
         
-        res.json({ token, employee: currentEmployee,employees:formatedEmployee });
+        res.json({ token, employee: employee,employees:formatedEmployee });
     } catch (error) {
         res.status(500).json({ message: 'Server error', error });
     }
@@ -80,6 +89,7 @@ app.post('/api/addEmployee', async (req, res) => {
         const {
             employeeId,
             name,
+            email,
             password,
             locationId,
             organizationId,
@@ -97,6 +107,7 @@ app.post('/api/addEmployee', async (req, res) => {
         const newEmployee = new Employee({
             employeeId,
             name,
+            email,
             password: hashedPassword,
             locationId,
             organizationId,
