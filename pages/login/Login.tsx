@@ -17,7 +17,7 @@ const Login = ({ navigation }: LoginProps) => {
         }
 
         try {
-            const response = await fetch('http://192.168.100.229:5001/api/login', {
+            const response = await fetch('http://192.168.18.47:5001/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -29,6 +29,8 @@ const Login = ({ navigation }: LoginProps) => {
 
             if (response.ok) {
                 setAuthData(data.token, data.employees);
+
+                console.log(data.employees);
 
                 navigation.navigate('Home');
             } else {
