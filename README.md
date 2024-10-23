@@ -2,6 +2,14 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Getting Started
 
+## Tools needs to setup the enviroment
+```bash
+Java version 17
+react-native-cli
+node version 20
+MongoDB
+```
+
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
 >**Note**: Before starting make sure you have ```.npmrc``` in your *$HOME/* directory or you can find the path for .npmrc using ```npm config ls -l``` look for *userconfig= "/somepath/"* somepath will be the best path for .npmrc. also include the ```//registry.npmjs.org/:_authToken=<YOUR_TOKEN>```
