@@ -45,7 +45,7 @@ app.post('/api/login', async (req, res) => {
         const currentEmployee = _employee.toObject();
         const employee = {
             id:currentEmployee._id,
-            employeeId: currentEmployee.employeeId,
+            employeeId: currentEmployee._id,
             locationId: currentEmployee.locationId,
             organizationId: currentEmployee.organizationId,
             partnerId: currentEmployee.partnerId,
@@ -60,7 +60,7 @@ app.post('/api/login', async (req, res) => {
 
         const employees = await Employee.find();
         const formatedEmployee = employees.map(em => ({
-            id: em.employeeId,
+            id: em._id,
             name: em.name,
             picture: em.picture,
             payrollId: em.payrollId,
@@ -100,8 +100,18 @@ app.post('/api/addEmployee', async (req, res) => {
             picture,
             deleted_at
         } = req.body;
-        console.log(password)
-
+console.log(employeeId,
+    name,
+    email,
+    password,
+    locationId,
+    organizationId,
+    payrollId,
+    employeePayrollId,
+    accessRole,
+    role,
+    picture,
+    deleted_at)
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const newEmployee = new Employee({
@@ -123,6 +133,7 @@ app.post('/api/addEmployee', async (req, res) => {
         await newEmployee.save();
         res.status(201).json({ message: 'Employee added successfully', employee: newEmployee });
     } catch (error) {
+        console.log(error)
         res.status(400).json({ message: 'Error adding employee', error });
     }
 });

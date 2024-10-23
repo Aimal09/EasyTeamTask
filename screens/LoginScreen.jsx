@@ -33,7 +33,7 @@ const LoginScreen = () => {
           password,
         }
       );
-      // Handle successful response
+     
       if (response.status === 200) {
         const { token, employee, employees } = response.data;
         dispatch({ type: "SET_TOKEN", payload: token });
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   button: {
-    backgroundColor: "#ff3479",
+    backgroundColor: "#ff0057",
     padding: 12,
     borderRadius: 8,
     alignItems: "center",
