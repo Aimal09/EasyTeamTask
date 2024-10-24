@@ -1,9 +1,17 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { Timesheet, AddButton } from "@easyteam/ui";
+import { Button } from "react-native";
 
 const TimesheetAdminScreen = ({ navigation, route }) => {
   const ref = useRef(null);
-  const employeeId = route.params?.employeeId || "";
+  const {
+    employeeId,
+    startDate:pStartDate,
+    endDate:pEndDate
+  } = route.params ?? {};
+
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   useLayoutEffect(() => {
     if (ref.current?.adminWritePermissions) {
@@ -37,9 +45,13 @@ const TimesheetAdminScreen = ({ navigation, route }) => {
     return null; 
   }
 
+
   return (
+    <>
     <Timesheet
       ref={ref}
+      startDate={startDate}
+      endDate={endDate}
       employeeId={employeeId}
       onEditPress={(date, selectedEmployeeId) => {
         navigation.navigate("Time Sheet", {
@@ -50,7 +62,9 @@ const TimesheetAdminScreen = ({ navigation, route }) => {
           },
         });
       }}
+      onEvent={e=>console.log(e)}
     />
+    </>
   );
 };
 
