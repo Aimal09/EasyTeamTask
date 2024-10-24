@@ -6,29 +6,15 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 ```bash
 Java version 17
 react-native-cli
-node version 20
-MongoDB
 ```
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
 >**Note**: Before starting make sure you have ```.npmrc``` in your *$HOME/* directory or you can find the path for .npmrc using ```npm config ls -l``` look for *userconfig= "/somepath/"* somepath will be the best path for .npmrc. also include the ```//registry.npmjs.org/:_authToken=<YOUR_TOKEN>```
 
-## Step 1: Install npm libraries and Start the Metro Server and Beckend server
+## Step 1: Install npm libraries and Start the Metro Server
 
-First you need to start the Backend server by
-
-use these commands from the _root_ of your React Native project: 
-```bash
-#using npm
-npm install
-
-cd server
-
-npm start
-```
-
-Then, open a new terminal to start the frontend
+Open a new terminal to start the frontend
 
 To start Metro, run the following command from the _root_ of your React Native project:
 ```bash
