@@ -1,6 +1,5 @@
-import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import { Timesheet, AddButton } from "@easyteam/ui";
-import { Button } from "react-native";
 
 const TimesheetAdminScreen = ({ navigation, route }) => {
   const ref = useRef(null);
@@ -62,7 +61,6 @@ const TimesheetAdminScreen = ({ navigation, route }) => {
           },
         });
       }}
-      onEvent={e=>console.log(e)}
     />
     </>
   );

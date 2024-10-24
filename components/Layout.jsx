@@ -10,6 +10,7 @@ const Layout = ({ children }) => {
     <EasyTeamProvider
       token={state.token}
       employees={state.employees}
+      isGlobalTimeTrackingEnabled={JSON.parse(state.user.isGlobalTrackingEnabled)}
       basePath={BASE_PATH}>
         {children}
     </EasyTeamProvider>

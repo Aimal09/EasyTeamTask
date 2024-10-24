@@ -37,7 +37,7 @@ const SignUpScreen = () => {
         picture:"https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg",
         deleted_at:null
     };
-console.log(requestPayload)
+    
     const response = await axios.post(
         BASE_URL + "/addEmployee",
         requestPayload
