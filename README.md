@@ -70,16 +70,16 @@ Ensure the following tools are installed:
 
 1. **Clone the repository:**
 
-   \`\`\`bash
+   ```bash
    git clone https://github.com/Aimal09/EasyTeamTask
    cd easyteam-embed-mobileapp
-   \`\`\`
+   ```
 
 2. **Install dependencies:**
 
-   \`\`\`bash
+   ```bash
    npm install
-   \`\`\`
+   ```
 
 3. **Set up the server side:**
 
@@ -93,17 +93,17 @@ To start the project locally with React Native CLI:
 
    Start the Android emulator and run:
 
-   \`\`\`bash
+   ```bash
    npx react-native run-android
-   \`\`\`
+   ```
 
 2. **For iOS (macOS only):**
 
    Open Xcode, start the iOS simulator, and run:
 
-   \`\`\`bash
+   ```bash
    npx react-native run-ios
-   \`\`\`
+   ```
 
 ## EasyTeam Time Tracking Integration
 
@@ -111,21 +111,21 @@ To integrate EasyTeam front-end components, follow these steps:
 
 1. **Create a `.npmrc` file** with the following content:
    
-   \`\`\`bash
+   ```bash
    # Find or create .npmrc on your system, usually its in ~/Users/<your-user>/.npmrc or you find it by using
    npm config ls -l
 
    # Add this to your .npmrc
    //registry.npmjs.org/:_authToken=${NPM_TOKEN}
-   \`\`\`
+   ```
 
 2. **Obtain an NPM token** from EasyTeam to use for installation.
    
 3. **Install the EasyTeam UI components** by running:
 
-   \`\`\`bash
+   ```bash
    npm install @easyteam/ui
-   \`\`\`
+   ```
 
 4. **Wrap your app** with the `EasyTeamProvider` component, passing the necessary authentication properties to ensure proper interaction with the API.
 
@@ -148,7 +148,7 @@ The app communicates with the **EasyTeam API** for time tracking, employee manag
 
 Key files and folders required for running this app:
 
-\`\`\`bash
+```bash
 .
 ├── App.js                     # Root component of the app
 ├── assets/                    # Image and asset folder
@@ -158,23 +158,23 @@ Key files and folders required for running this app:
 ├── screens/                   # Screen components (ClockScreen, TimesheetScreen, etc.)
 ├── config/                    # Base URLs and API configuration
 └── navigation/                # All navigation and routing logic
-\`\`\`
+```
 
 ## Environment Variables
 
 In the root directory, create an `config/api.js` file for environment variables:
 
-\`\`\`bash
+```bash
 BASE_URL=http://10.0.3.2:8000/api # For Genymotion emulator
 BASE_URL=http://10.0.2.2:8000/api # For Android emulator
-\`\`\`
+```
 
 Replace `10.0.2.2` with your **local IP address** when running the app on a physical Android device.
 
 ### How to Find Your Local IP Address:
 
-- **Mac**: Run \`ifconfig | grep inet\` in the terminal to find your local IP.
-- **Windows**: Run \`ipconfig\` in Command Prompt to find the "IPv4 Address."
+- **Mac**: Run `ifconfig | grep inet` in the terminal to find your local IP.
+- **Windows**: Run `ipconfig` in Command Prompt to find the "IPv4 Address."
 
 Ensure both your computer and mobile device are connected to the same network.
 
@@ -184,9 +184,9 @@ You can write unit and integration tests using [Jest](https://jestjs.io/) and [R
 
 To run tests:
 
-\`\`\`bash
+```bash
 npm test
-\`\`\`
+```
 
 Ensure you write tests for critical areas of the app, including API interactions and role-based navigation.
 
@@ -205,9 +205,9 @@ Ensure you write tests for critical areas of the app, including API interactions
 Contributions are welcome! To contribute to this project, follow these steps:
 
 1. Fork the repository.
-2. Create your feature branch (\`git checkout -b feature/my-new-feature\`).
-3. Commit your changes (\`git commit -m 'Add some feature'\`).
-4. Push to the branch (\`git push origin feature/my-new-feature\`).
+2. Create your feature branch (`git checkout -b feature/my-new-feature`).
+3. Commit your changes (`git commit -m 'Add some feature'`).
+4. Push to the branch (`git push origin feature/my-new-feature`).
 5. Create a Pull Request.
 
 Ensure your code follows the project's coding standards and includes relevant tests.
