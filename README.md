@@ -1,88 +1,224 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# EasyTeam Time Tracking Embed
 
-# Getting Started
+### React Native CLI Application
 
-## Tools needs to setup the enviroment
-```bash
-Java version 17
-react-native-cli
-```
+## Table of Contents
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+- [Project Description](#project-description)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [EasyTeam Time Tracking Integration](#easyteam-time-tracking-integration)
+- [Running the Project](#running-the-project)
+- [EasyTeam API Integration](#easyteam-api-integration)
+- [Folder Structure](#folder-structure)
+- [Environment Variables](#environment-variables)
+- [Testing](#testing)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
 
->**Note**: Before starting make sure you have ```.npmrc``` in your *$HOME/* directory or you can find the path for .npmrc using ```npm config ls -l``` look for *userconfig= "/somepath/"* somepath will be the best path for .npmrc. also include the ```//registry.npmjs.org/:_authToken=<YOUR_TOKEN>```
+---
 
-## Step 1: Install npm libraries and Start the Metro Server
+## Project Description
 
-Open a new terminal to start the frontend
+This project is a React Native mobile application that integrates **EasyTeam**, a time tracking and employee management solution, enabling seamless embedding of EasyTeam's time tracking functionality into mobile environments.
 
-To start Metro, run the following command from the _root_ of your React Native project:
-```bash
-#using npm
-npm install
+With this app, both employees and administrators can interact with EasyTeam's features directly within their mobile devices.
 
-# using npm
-npm start
-```
+**EasyTeam embed** is a library used for embedding EasyTeam time tracking into other mobile applications. This integration allows users to:
 
+- Track time through EasyTeam within the app.
+- Manage employee work hours, shifts, and timesheets.
+- Enable role-based features for employees and administrators.
 
+The project uses the EasyTeam API to handle time tracking, shift management, and employee management, ensuring smooth integration with the EasyTeam platform.
 
-## Step 2: Start your Application
+## Features
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+- [x] **EasyTeam Time Tracking**: Integrated time tracking for employees.
+- [x] **Timesheet Management**: Role-based views for employees and admins.
+- [x] **Shift Management**: Admins can create, update, and manage employee shifts.
+- [x] **Authentication**: JWT-based user authentication.
+- [x] **Role-based Navigation**: Different views for admins and employees based on user roles.
 
-### For Android
+## Tech Stack
 
-```bash
-# using npm
-npm run android
+- **React Native**: Cross-platform mobile development framework.
+- **Axios**: For handling API requests to EasyTeam.
+- **React Navigation**: For managing navigation between screens.
+- **AsyncStorage**: For locally storing authentication tokens.
+- **EasyTeam API**: For time tracking and shift management functionality.
 
-# OR using Yarn
-yarn android
-```
+## Getting Started
 
-### For iOS
+Follow these instructions to set up the project on your local machine for development and testing.
 
-```bash
-# using npm
-npm run ios
+### Prerequisites
 
-# OR using Yarn
-yarn ios
-```
+Ensure the following tools are installed:
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+- [Node.js](https://nodejs.org/) (LTS version recommended)
+- [Git](https://git-scm.com/)
+- [Android Studio](https://developer.android.com/studio) (For Android emulator)
+- [Xcode](https://developer.apple.com/xcode/) (For iOS development, macOS only)
+- **EasyTeam API Access**: Obtain access to the EasyTeam API for integration purposes.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+### Installation
 
-## Step 3: Modifying your App
+1. **Clone the repository:**
 
-Now that you have successfully run the app, let's modify it.
+   \`\`\`bash
+   git clone https://github.com/Aimal09/EasyTeamTask
+   cd easyteam-embed-mobileapp
+   \`\`\`
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+2. **Install dependencies:**
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+   \`\`\`bash
+   npm install
+   \`\`\`
 
-## Congratulations! :tada:
+3. **Set up the server side:**
 
-You've successfully run and modified your React Native App. :partying_face:
+   To run the app, you will need the server-side code running locally alongside the **EasyTeam** app. If you don't have the server-side code, you can find it [here](https://github.com/Aimal09/EastTeamTaskServer) and follow the README instructions in that repository.
 
-### Now what?
+### Running the Project
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+To start the project locally with React Native CLI:
 
-# Troubleshooting
+1. **For Android:**
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+   Start the Android emulator and run:
 
-# Learn More
+   \`\`\`bash
+   npx react-native run-android
+   \`\`\`
 
-To learn more about React Native, take a look at the following resources:
+2. **For iOS (macOS only):**
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+   Open Xcode, start the iOS simulator, and run:
+
+   \`\`\`bash
+   npx react-native run-ios
+   \`\`\`
+
+## EasyTeam Time Tracking Integration
+
+To integrate EasyTeam front-end components, follow these steps:
+
+1. **Create a `.npmrc` file** with the following content:
+   
+   \`\`\`bash
+   # Find or create .npmrc on your system, usually its in ~/Users/<your-user>/.npmrc or you find it by using
+   npm config ls -l
+
+   # Add this to your .npmrc
+   //registry.npmjs.org/:_authToken=${NPM_TOKEN}
+   \`\`\`
+
+2. **Obtain an NPM token** from EasyTeam to use for installation.
+   
+3. **Install the EasyTeam UI components** by running:
+
+   \`\`\`bash
+   npm install @easyteam/ui
+   \`\`\`
+
+4. **Wrap your app** with the `EasyTeamProvider` component, passing the necessary authentication properties to ensure proper interaction with the API.
+
+## EasyTeam API Integration
+
+The app communicates with the **EasyTeam API** for time tracking, employee management, and shift handling.
+
+### Typical Workflow:
+
+1. **Authentication**:
+   The app uses JWT for user authentication. A valid token is required for making API requests to the EasyTeam backend.
+
+2. **Fetching Employee Data**:
+   After authentication, the app retrieves employee time tracking data (clock-ins, clock-outs, timesheets) from EasyTeam.
+
+3. **Shift Management**:
+   Admins can manage shifts via the EasyTeam API, creating and updating shifts as needed.
+
+## Folder Structure
+
+Key files and folders required for running this app:
+
+\`\`\`bash
+.
+├── App.js                     # Root component of the app
+├── assets/                    # Image and asset folder
+├── components/                # Reusable components (e.g., Buttons, Modals)
+├── context/                   # Context API for global state management
+├── navigation/                # React Navigation configuration
+├── screens/                   # Screen components (ClockScreen, TimesheetScreen, etc.)
+├── config/                    # Base URLs and API configuration
+└── navigation/                # All navigation and routing logic
+\`\`\`
+
+## Environment Variables
+
+In the root directory, create an `config/api.js` file for environment variables:
+
+\`\`\`bash
+BASE_URL=http://10.0.3.2:8000/api # For Genymotion emulator
+BASE_URL=http://10.0.2.2:8000/api # For Android emulator
+\`\`\`
+
+Replace `10.0.2.2` with your **local IP address** when running the app on a physical Android device.
+
+### How to Find Your Local IP Address:
+
+- **Mac**: Run \`ifconfig | grep inet\` in the terminal to find your local IP.
+- **Windows**: Run \`ipconfig\` in Command Prompt to find the "IPv4 Address."
+
+Ensure both your computer and mobile device are connected to the same network.
+
+## Testing
+
+You can write unit and integration tests using [Jest](https://jestjs.io/) and [React Native Testing Library](https://callstack.github.io/react-native-testing-library/).
+
+To run tests:
+
+\`\`\`bash
+npm test
+\`\`\`
+
+Ensure you write tests for critical areas of the app, including API interactions and role-based navigation.
+
+## Troubleshooting
+
+- **App not running on Android/iOS emulator?**
+  - Make sure the emulator is properly configured and running.
+  - For Android, ensure Android Studio and its SDK tools are correctly set up.
+
+- **Network request errors?**
+  - Verify that the EasyTeam API base URL and routes are correct.
+  - Ensure that your JWT token is valid and not expired.
+
+## Contributing
+
+Contributions are welcome! To contribute to this project, follow these steps:
+
+1. Fork the repository.
+2. Create your feature branch (\`git checkout -b feature/my-new-feature\`).
+3. Commit your changes (\`git commit -m 'Add some feature'\`).
+4. Push to the branch (\`git push origin feature/my-new-feature\`).
+5. Create a Pull Request.
+
+Ensure your code follows the project's coding standards and includes relevant tests.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+### Acknowledgments
+
+- **EasyTeam** for providing the time tracking service integration.
+- The **React Native** and **Open Source** community for the amazing tools and libraries used in this project.
