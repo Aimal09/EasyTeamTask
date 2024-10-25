@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
-import { AppNavigator } from "./AppNavigator";
-import { AuthNavigator } from "./AuthNavigator";
+import { AppNavigator } from "./app/";
+import { AuthNavigator } from "./auth/AuthNavigator";
 import { useAppState } from "../state-management/hooks/useAppState";
 
 const MainNavigator = () => {

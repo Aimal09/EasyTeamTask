@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { AppStateProvider } from "./state-management/index.js";
-import MainNavigator from "./navigation/MainNavigator";
+import MainNavigator from './navigation/index.jsx';
 
 function App(): React.JSX.Element {
   return (

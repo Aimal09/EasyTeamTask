@@ -11,6 +11,7 @@ import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import { useAppState } from "../state-management/hooks/useAppState";
 import { BASE_URL } from "../config/api"; 
+import { Actions } from "../state-management/Actions";
 
 const LoginScreen = () => {
   const { dispatch } = useAppState();
@@ -35,9 +36,7 @@ const LoginScreen = () => {
       );
       if (response.status === 200) {
         const { token, employee, employees } = response.data;
-        dispatch({ type: "SET_TOKEN", payload: token });
-        dispatch({ type: "SET_EMPLOYEES", payload: employees });
-        dispatch({ type: "SET_USER", payload: employee });
+        dispatch({ type: Actions.INIT_USER, payload: {token , employee, employees} });
       } else {
         Alert.alert(
           "Login Failed",
