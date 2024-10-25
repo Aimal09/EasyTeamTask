@@ -1,9 +1,8 @@
 import React from "react";
 import { Settings } from "@easyteam/ui";
-import { useAppState } from "../state-management";
+import { useAppState } from "../state-management/hooks/useAppState";
 import axios from "axios";
 import { BASE_URL } from "../config/api";
-import { View } from "react-native";
 
 const SettingsScreen = () => {
   const { state } = useAppState();
