@@ -1,12 +1,12 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ClockScreen from "../screens/ClockScreen";
+import ClockScreen from "../screens/ClockScreen.jsx";
 import TimesheetScreen from "../screens/TimesheetEmployeeScreen.jsx";
 import SettingsScreen from "../screens/SettingsScreen.jsx";
 import EmployeesAdminScreen from "../screens/EmployeesAdminScreen.jsx";
 import TimesheetAdminScreen from "../screens/TimesheetAdminScreen.jsx";
 import ShiftFormScreen from "../screens/ShiftFormScreen.jsx";
-import { useAppState } from "../context/AppStateContext.js";
+import { useAppState } from "../state-management/hooks/useAppState.js";
 import Layout from "../components/Layout.jsx";
 import ClockIcon from '../assets/images/clock.svg';
 import TimeSheetIcon from '../assets/images/timesheet.svg';

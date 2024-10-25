@@ -1,8 +1,9 @@
 import React from "react";
 import { Settings } from "@easyteam/ui";
-import { useAppState } from "../context/AppStateContext";
+import { useAppState } from "../state-management";
 import axios from "axios";
 import { BASE_URL } from "../config/api";
+import { View } from "react-native";
 
 const SettingsScreen = () => {
   const { state } = useAppState();
@@ -19,11 +20,11 @@ const SettingsScreen = () => {
   };
 
   return (
-    <Settings
-      onSave={({ isGlobalTrackingEnabled }) => {
-        updateGlobalTrackingSetting(isGlobalTrackingEnabled);
-      }}
-    />
+      <Settings
+        onSave={({ isGlobalTrackingEnabled }) => {
+          updateGlobalTrackingSetting(isGlobalTrackingEnabled);
+        }}
+      />
   );
 };
 

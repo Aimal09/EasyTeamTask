@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppStateProvider } from "./context/AppStateContext.js";
+import { AppStateProvider } from "./state-management/index.js";
 import MainNavigator from "./navigation/MainNavigator";
 
 function App(): React.JSX.Element {

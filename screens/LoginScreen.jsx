@@ -9,13 +9,13 @@ import {
 } from "react-native";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
-import { useAppState } from "../context/AppStateContext";
+import { useAppState } from "../state-management/hooks/useAppState";
 import { BASE_URL } from "../config/api"; 
 
 const LoginScreen = () => {
   const { dispatch } = useAppState();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("abc@d.com");
+  const [password, setPassword] = useState("abc1234");
   const [loading, setLoading] = useState(false);
   const navigation = useNavigation();
 
@@ -33,7 +33,6 @@ const LoginScreen = () => {
           password,
         }
       );
-     
       if (response.status === 200) {
         const { token, employee, employees } = response.data;
         dispatch({ type: "SET_TOKEN", payload: token });
@@ -46,6 +45,7 @@ const LoginScreen = () => {
         );
       }
     } catch (error) {
+     console.log(error)
       Alert.alert("Login Failed", "An error occurred. Please try again.");
     } finally {
       setLoading(false);
